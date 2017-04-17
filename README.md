@@ -1,13 +1,13 @@
 # AngelList Jobs to Trello
 
-This script allows you to push new jobs found on Angelist to a Trello board. It will update the board with the initial list it finds, then incrementally add new jobs as they are discovered and shoot you an email when a new listing is found. it is intended to run on a server as it runs every `x` minutes (you can specify this parameter).
+This script allows you to push new jobs found on AngelList to a Trello board. It will update the board with the initial list it finds, then incrementally add new jobs as they are discovered and shoot you an email when a new listing is found. it is intended to run on a server as it runs every `x` minutes (you can specify this parameter).
 
-I find this script to be helpful when I'm job searching, as it can give you a head start on new listings. It also allows for easier organization of jobs that you've applied for.
+I find this script helpful when I'm job searching, as it can give you a head start on new listings. It also allows for easier organization of jobs that you've applied for.
 
-  - AngelList have closed their API, so this data is not easily accessible
-  - Their job notifications aggregate after a certain time period, so you dont get notified of new listings instantly
+  - AngelList have closed their API, so this data is not accessible outside of their site
+  - Their job notifications aggregate multiple jobs after a certain time period, then email them to you. This means you're not getting notified of new listings instantly
   - This script works as of 16/04/2017 (Not sure how long Angel.co will keep their current HTTP get/post combo used to retrieve the listings)
-  - Changing the loop timing may increase the likihood of rate limiting/IP blocking
+  - Shortening the loop timing may increase the likihood of rate limiting/IP blocking.
 
 ### Features
  - Adds an orange label if the employer is known to respond quickly
@@ -16,10 +16,10 @@ I find this script to be helpful when I'm job searching, as it can give you a he
 
 ### Dependencies
 
-  - Beautiful Soup - https://crummy.com/software/BeautifulSoup/
+  - BS4 - https://crummy.com/software/BeautifulSoup/
   - An API Key and account with Mail Gun - https://mailgun.com/
   - Trello API Key and account - https://trello.com
-  - A server to run the script on, I use https://pythonanywhere.com. You can run this locally but it is intended to run in the background permanently
+  - A server to run the script on, I use https://pythonanywhere.com. You can run this locally but it is intended to run in the background permanently.
 
 ### Before you begin
 
@@ -34,7 +34,7 @@ I find this script to be helpful when I'm job searching, as it can give you a he
 $ git clone https://github.com/ramsaymax/Angel-List-Jobs-to-Trello.git
 ```
 
-1. Login to Trello and get the board ID from the URL string as shown below. This is the ID of the board containing the list you'd like to write to.
+1. Login to Trello and get the board ID from the URL as shown below. This is the ID of the board containing the list you'd like to write to.
 ![options CSV](http://i.imgur.com/qhQ7o6C.png)
 2. Create a new list in trello, and make a note of its **exact name** as it appears in their app
 
@@ -48,7 +48,7 @@ $ python setup.py
 6. Enter the email address you'd like new job notifications sent to.
 
 
-6. Lastly, make sure `daily_check.csv` is empty (This allows for the board to populate).
+6. Lastly, make sure `daily_check.csv` is empty (This allows for the board to populate initially).
 
 7. run `python main.py`
 

@@ -1,0 +1,9 @@
+{
+  "filter_data[locations][]": "1692-San Francisco, CA",
+  "filter_data[roles][]": "Frontend Developer",
+  "filter_data[salary][max]": "120",
+  "filter_data[salary][min]": "65",
+  "filter_data[skills][]": "Javascript",
+  "filter_data[types][]": "full-time",
+  "tab": "find"
+}
